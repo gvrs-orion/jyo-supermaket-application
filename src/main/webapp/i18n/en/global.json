@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "JyoSupermarketApplication",
+    "title": "Arul Jyothi Supermarket",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
       "home": "Home",
@@ -14,9 +14,9 @@
         "settings": "Settings",
         "password": "Password",
         "sessions": "Sessions",
-        "login": "Sign in",
-        "logout": "Sign out",
-        "register": "Register"
+        "login": "Log In",
+        "logout": "Log Out",
+        "register": "Sign Up"
       },
       "admin": {
         "main": "Administration",

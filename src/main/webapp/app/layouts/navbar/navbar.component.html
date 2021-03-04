@@ -1,14 +1,90 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+<div class="row bg-dark top-nav" style="color:rgb(207, 207, 207);font-weight: 500;">
+    <div class="col-1 text-right"><a target="_blank" href="http://www.justdial.com/" style="background-color: white;
+        border-radius: 30px;
+        color: #000;
+        width: 20px;
+        float: right;
+        height: 20px;
+        margin: 5px;
+        padding-bottom: 3px;
+        font-weight: 500;
+        /* top: 0; */
+        text-align: center;
+    ">Jd</a></div>
+    <div class="col-1" style="min-width: 200px;"><a href="tel:+91-9688811528">
+            &#9990; +91-9742997676
+        </a></div>
+    <div class="col-3"><a href="mailto:aruljyothi9742@gmail.com">&#9993; aruljyothi9742@gmail.com</a></div>
+    <div class="col-2"></div>
+    <div class="col-1"><a>Bengaluru</a> </div>
+    <div class="col-1">
+        <fa-icon icon="envelope"></fa-icon> <a>Track order</a>
+    </div>
+    <div *ngIf="!isAuthenticated()" class="col-2">
+        <fa-icon icon="user"></fa-icon><a (click)="login()" class="ml-1" id="login">Login</a> | <a
+            routerLink="account/register">Signup</a>
+    </div>
+</div>
+<nav class="navbar navbar-expand-md" style="background-color: #f2f2f2;">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-        <span class="logo-img"></span>
-        <span jhiTranslate="global.title" class="navbar-title">JyoSupermarketApplication</span> <span class="navbar-version">{{ version }}</span>
+        <span class="logo-img" style="display: inline-block;vertical-align: top;"></span>
+        <span class="navbar-title" style="display: inline-block;color: #1776BF;">ARUL JYOTHI <br />SUPER MARKET</span>
+        <!-- <span class="navbar-version">{{ version }}</span> -->
     </a>
-    <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+    <div class="searchBar-wrapper pos-rel ">
+        <div class="srch_wraper event-disabled">
+            <div class="input-content editable-content-holder">
+                <div class="editable-content pos-rel"><input type="text" id="srchtxtsticky" name="srchtxtsticky"
+                        autocomplete="off"
+                        class="srpt editable-content not-editable search-text-box searchBar-border searchBar-bg searchBar-text button  bold"
+                        placeholder="Search Here" value=""><input type="text"
+                        style="height:0;width:0;border:none;padding:0" name="fakeremembered"></div>
+            </div>
+            <div class="editable-content-holder searchBtn-wrapper editable-button  ">
+                <div class="editable-content search-bg-color search-icon-color"
+                    style="overflow:hidden;font-family:Libre Franklin"><button
+                        class="search-button search-scroll-bg button go-link-source ripple-effect  bold"
+                        data-retainposition="true" data-ripple-overflow="true" seleniumid="sel_srcBtn"><span
+                            class="icon-search search-icon-color display-flex"></span><span
+                            class="srch-btn-text search-icon-color">Search</span></button></div>
+            </div>
+        </div>
+    </div>
+    <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
     </a>
-    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed"
+        [ngSwitch]="isAuthenticated()">
+        <div *ngSwitchCase="false">
+
+        </div>
+        <ul class="navbar-nav ml-auto" style="margin-bottom: -1.5rem;">
+
+            <li class="nav-item" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="/" (click)="collapseNavbar()" style="border: 1px solid #c2c2c2 !important;
+                height: 36px;
+                padding: .25rem .5rem .25rem 0rem;
+                width: 64px;
+                margin-right: -32px;">
+                    <!-- <span> -->
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                        class="svg-inline--fa fa-shopping-cart fa-w-18 fa-fw fa-lg">
+                        <path fill="currentColor"
+                            d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
+                            class=""></path>
+                    </svg>
+                    <!-- <fa-icon icon="shopping-basket"  [fixedWidth]="true"></fa-icon> -->
+                    <!-- &#x1f6d2; -->
+                    <span style="position: absolute;">Cart</span>
+                    <!-- </span> -->
+                </a>
+            </li>
+            <li *ngSwitchCase="true" style="visibility: hidden;" class="nav-item" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="home"></fa-icon>
@@ -17,7 +93,8 @@
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li ngbDropdown style="visibility: hidden;" class="nav-item dropdown pointer" display="dynamic"
+                routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
@@ -30,7 +107,8 @@
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic"
+                routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
                         <fa-icon icon="user-plus"></fa-icon>
@@ -39,43 +117,50 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="user" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.userManagement">User management</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.health">Health</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="list" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="bell" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.audits">Audits</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.logs">Logs</span>
                         </a>
                     </li>
                     <li *ngIf="swaggerEnabled">
-                        <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.apidocs">API</span>
                         </a>
@@ -89,8 +174,10 @@
                     </li>
                 </ul>
             </li>
-            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic"
+                *ngIf="languages && languages.length > 1">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);"
+                    id="languagesnavBarDropdown">
                     <span>
                         <fa-icon icon="flag"></fa-icon>
                         <span jhiTranslate="global.menu.language">Language</span>
@@ -98,11 +185,14 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
                     <li *ngFor="let language of languages">
-                        <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);collapseNavbar();">{{ language | findLanguageFromKey }}</a>
+                        <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);"
+                            (click)="changeLanguage(language);collapseNavbar();">{{ language | findLanguageFromKey
+                            }}</a>
                     </li>
                 </ul>
             </li>
-            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic"
+                routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
                     <span *ngIf="!getImageUrl()">
                         <fa-icon icon="user"></fa-icon>
@@ -116,13 +206,15 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
                     <li *ngSwitchCase="true">
-                        <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.settings">Settings</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="true">
-                        <a class="dropdown-item" routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="account/password" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.password">Password</span>
                         </a>
@@ -133,20 +225,272 @@
                             <span jhiTranslate="global.menu.account.logout">Sign out</span>
                         </a>
                     </li>
-                    <li *ngSwitchCase="false">
+                    <!-- <li *ngSwitchCase="false">
                         <a class="dropdown-item" (click)="login()" id="login">
                             <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.login">Sign in</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="false">
-                        <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="account/register" routerLinkActive="active"
+                            (click)="collapseNavbar()">
                             <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.register">Register</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
+<div class="w3-card-2 topnav notranslate" id="topnav" style="position: relative; top: 0px;">
+    <div style="overflow:auto;">
+      <div class="w3-bar w3-middle" style="width:100%;overflow:hidden;height:44px;padding-left: 10rem;">
+        <a href="javascript:void(0);" class="topnav-icons fa fa-menu w3-hide-large w3-left w3-bar-item w3-button" onclick="open_menu()" title="Menu"></a>
+        <a href="" class="w3-bar-item w3-button active" title="Home">HOME</a>
+        <a class="w3-bar-item w3-button" href="" title="GROCERY">GROCERY</a>
+        <a class="w3-bar-item w3-button" href="" title="PACKAGE FOODS">PACKAGE FOODS</a>
+        <a class="w3-bar-item w3-button" href="" title="PERSONAL CARE">PERSONAL CARE</a>
+        <a class="w3-bar-item w3-button" href="" title="HOUSE CARE">HOUSE CARE</a>
+        <a class="w3-bar-item w3-button" href="" title="KITCHEN WARES">KITCHEN WARES</a>
+        <a class="w3-bar-item w3-button" href="" title="LIFESTYLE">LIFESTYLE</a>
+        <a class="w3-bar-item w3-button" id="topnavbtn_tutorials" href="javascript:void(0);" title="Tutorials">MORE <fa-icon icon="caret-down"></fa-icon><i class="fa fa-caret-down" style="display: inline;"></i><i class="fa fa-caret-up" style="display: none;"></i></a>
+        <!-- <a href="javascript:void(0);" class="topnav-icons fa w3-right w3-bar-item w3-button" onclick="open_search(this)" title="Search W3Schools"></a>
+        <a href="javascript:void(0);" class="topnav-icons fa w3-right w3-bar-item w3-button" onclick="open_translate(this)" title="Translate W3Schools"></a>
+        <a href="javascript:void(0);" class="topnav-icons fa w3-right w3-bar-item w3-button" onclick="changecodetheme(this)" title="Toggle Dark Code"></a>
+        <a class="w3-bar-item w3-button w3-right" target="_blank" href="https://shop.w3schools.com">SHOP</a>
+  
+        <a class="w3-bar-item w3-button w3-right" href="https://courses.w3schools.com" target="blank" title="Courses">COURSES</a> -->
+  
+        <!--
+        <a class="w3-bar-item w3-button w3-right" id='topnavbtn_exercises' href='javascript:void(0);' onclick='w3_open_nav("exercises")' title='Exercises'>EXERCISES <i class='fa fa-caret-down'></i><i class='fa fa-caret-up' style='display:none'></i></a>
+        -->
+<!--         
+        <a class="w3-bar-item w3-button w3-right" id="topnavbtn_references" href="javascript:void(0);" onclick="w3_open_nav(&quot;references&quot;)" title="References">REFERENCES <i class="fa fa-caret-down" style="display: inline;"></i><i class="fa fa-caret-up" style="display:none"></i></a>
+        <a class="w3-bar-item w3-button w3-right w3-hide-medium" id="topnavbtn_exercises" href="javascript:void(0);" onclick="w3_open_nav(&quot;exercises&quot;)" title="Exercises">EXERCISES <i class="fa fa-caret-down" style="display: inline;"></i><i class="fa fa-caret-up" style="display:none"></i></a>
+      </div>
+      <div id="nav_tutorials" class="w3-bar-block w3-card-2" style="display: none;">
+        <span onclick="w3_close_nav(&quot;tutorials&quot;)" class="w3-button w3-xlarge w3-right" style="position:absolute;right:0;font-weight:bold;">×</span>
+        <div class="w3-row-padding" style="padding:24px 48px">
+          <div class="w3-col l3 m6">
+            <h3>HTML and CSS</h3>
+            <a class="w3-bar-item w3-button" href="/html/default.asp">Learn HTML</a>
+            <a class="w3-bar-item w3-button" href="/css/default.asp">Learn CSS</a>
+            <a class="w3-bar-item w3-button" href="/bootstrap/bootstrap_ver.asp">Learn Bootstrap</a>
+            <a class="w3-bar-item w3-button" href="/w3css/default.asp">Learn W3.CSS</a>
+            <a class="w3-bar-item w3-button" href="/colors/default.asp">Learn Colors</a>
+            <a class="w3-bar-item w3-button" href="/icons/default.asp">Learn Icons</a>
+            <a class="w3-bar-item w3-button" href="/graphics/default.asp">Learn Graphics</a>
+            <a class="w3-bar-item w3-button" href="/graphics/svg_intro.asp">Learn SVG</a>
+            <a class="w3-bar-item w3-button" href="/graphics/canvas_intro.asp">Learn Canvas</a>
+            <a class="w3-bar-item w3-button" href="/howto/default.asp">Learn How To</a>
+            <a class="w3-bar-item w3-button" href="/sass/default.php">Learn Sass</a>          
+            <div class="w3-hide-large w3-hide-small">
+            <h3>Artificial Intelligence</h3>
+            <a class="w3-bar-item w3-button" href="/ai/default.asp">Learn AI</a>
+            <a class="w3-bar-item w3-button" href="/python/python_ml_getting_started.asp">Learn Machine Learning</a>
+            <a class="w3-bar-item w3-button" href="/datascience/default.asp">Learn Data Science</a>
+            <a class="w3-bar-item w3-button" href="/python/pandas/default.asp">Learn Pandas</a>
+              <h3>XML</h3>
+              <a class="w3-bar-item w3-button" href="/xml/default.asp">Learn XML</a>
+              <a class="w3-bar-item w3-button" href="/xml/ajax_intro.asp">Learn XML AJAX</a>
+              <a class="w3-bar-item w3-button" href="/xml/dom_intro.asp">Learn XML DOM</a>
+              <a class="w3-bar-item w3-button" href="/xml/xml_dtd_intro.asp">Learn XML DTD</a>
+              <a class="w3-bar-item w3-button" href="/xml/schema_intro.asp">Learn XML Schema</a>
+              <a class="w3-bar-item w3-button" href="/xml/xsl_intro.asp">Learn XSLT</a>
+              <a class="w3-bar-item w3-button" href="/xml/xpath_intro.asp">Learn XPath</a>
+              <a class="w3-bar-item w3-button" href="/xml/xquery_intro.asp">Learn XQuery</a>
+            </div>
+          </div>
+          <div class="w3-col l3 m6">
+            <h3>JavaScript</h3>
+            <a class="w3-bar-item w3-button" href="/js/default.asp">Learn JavaScript</a>
+            <a class="w3-bar-item w3-button" href="/jquery/default.asp">Learn jQuery</a>
+            <a class="w3-bar-item w3-button" href="/react/default.asp">Learn React</a>
+            <a class="w3-bar-item w3-button" href="/angular/default.asp">Learn AngularJS</a>
+            <a class="w3-bar-item w3-button" href="/js/js_json_intro.asp">Learn JSON</a>
+            <a class="w3-bar-item w3-button" href="/js/js_ajax_intro.asp">Learn AJAX</a>
+            <a class="w3-bar-item w3-button" href="/appml/default.asp">Learn AppML</a>
+            <a class="w3-bar-item w3-button" href="/w3js/default.asp">Learn W3.JS</a>
+            <h3>Programming</h3>
+            <a class="w3-bar-item w3-button" href="/python/default.asp">Learn Python</a>
+            <a class="w3-bar-item w3-button" href="/java/default.asp">Learn Java</a>
+            <a class="w3-bar-item w3-button" href="/cpp/default.asp">Learn C++</a>
+            <a class="w3-bar-item w3-button" href="/cs/default.asp">Learn C#</a>
+            <a class="w3-bar-item w3-button" href="/r/default.asp">Learn R</a>
+            <div class="w3-hide-small"><br class="w3-hide-medium w3_hide-small"><br class="w3-hide-medium w3_hide-small"></div>
+          </div>
+          <div class="w3-col l3 m6">
+            <h3>Server Side</h3>
+            <a class="w3-bar-item w3-button" href="/sql/default.asp">Learn SQL</a>
+            <a class="w3-bar-item w3-button" href="/php/default.asp">Learn PHP</a>
+            <a class="w3-bar-item w3-button" href="/asp/default.asp">Learn ASP</a>
+            <a class="w3-bar-item w3-button" href="/nodejs/default.asp">Learn Node.js</a>
+            <a class="w3-bar-item w3-button" href="/nodejs/nodejs_raspberrypi.asp">Learn Raspberry Pi</a>          
+            <h3>Web Building</h3>
+            <a class="w3-bar-item w3-button" href="/w3css/w3css_templates.asp">Web Templates</a>
+            <a class="w3-bar-item w3-button" href="/browsers/default.asp">Web Statistics</a>
+            <a class="w3-bar-item w3-button" href="/cert/default.asp">Web Certificates</a>
+            <a class="w3-bar-item w3-button" href="/tryit/default.asp">Web Editor</a>
+            <a class="w3-bar-item w3-button" href="/whatis/default.asp">Web Development</a>
+            <a class="w3-bar-item w3-button" href="/typingspeed/default.asp">Test Your Typing Speed</a>
+          </div>
+          <div class="w3-col l3 m6 w3-hide-medium">
+            <h3>Artificial Intelligence</h3>
+            <a class="w3-bar-item w3-button" href="/ai/default.asp">Learn AI</a>
+            <a class="w3-bar-item w3-button" href="/python/python_ml_getting_started.asp">Learn Machine Learning</a>
+            <a class="w3-bar-item w3-button" href="/datascience/default.asp">Learn Data Science</a>
+            <a class="w3-bar-item w3-button" href="/python/pandas/default.asp">Learn Pandas</a>
+            <h3>XML</h3>
+            <a class="w3-bar-item w3-button" href="/xml/default.asp">Learn XML</a>
+            <a class="w3-bar-item w3-button" href="/xml/ajax_intro.asp">Learn XML AJAX</a>
+            <a class="w3-bar-item w3-button" href="/xml/dom_intro.asp">Learn XML DOM</a>
+            <a class="w3-bar-item w3-button" href="/xml/xml_dtd_intro.asp">Learn XML DTD</a>
+            <a class="w3-bar-item w3-button" href="/xml/schema_intro.asp">Learn XML Schema</a>
+            <a class="w3-bar-item w3-button" href="/xml/xsl_intro.asp">Learn XSLT</a>
+            <a class="w3-bar-item w3-button" href="/xml/xpath_intro.asp">Learn XPath</a>
+            <a class="w3-bar-item w3-button" href="/xml/xquery_intro.asp">Learn XQuery</a>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div id="nav_references" class="w3-bar-block w3-card-2" style="display: none;">
+        <span onclick="w3_close_nav(&quot;references&quot;)" class="w3-button w3-xlarge w3-right" style="position:absolute;right:0;font-weight:bold;">×</span>
+        <div class="w3-row-padding" style="padding:24px 48px">
+          <div class="w3-col l3 m6">
+            <h3>HTML</h3>
+            <a class="w3-bar-item w3-button" href="/tags/default.asp">HTML Tag Reference</a>
+            <a class="w3-bar-item w3-button" href="/tags/ref_html_browsersupport.asp">HTML Browser Support</a>
+            <a class="w3-bar-item w3-button" href="/tags/ref_eventattributes.asp">HTML Event Reference</a>
+            <a class="w3-bar-item w3-button" href="/colors/default.asp">HTML Color Reference</a>
+            <a class="w3-bar-item w3-button" href="/tags/ref_attributes.asp">HTML Attribute Reference</a>
+            <a class="w3-bar-item w3-button" href="/tags/ref_canvas.asp">HTML Canvas Reference</a>
+            <a class="w3-bar-item w3-button" href="/graphics/svg_reference.asp">HTML SVG Reference</a>
+            <a class="w3-bar-item w3-button" href="/charsets/default.asp">HTML Character Sets</a>
+            <a class="w3-bar-item w3-button" href="/graphics/google_maps_reference.asp">Google Maps Reference</a>
+            <h3>CSS</h3>
+            <a class="w3-bar-item w3-button" href="/cssref/default.asp">CSS Reference</a>
+            <a class="w3-bar-item w3-button" href="/cssref/css3_browsersupport.asp">CSS Browser Support</a>
+            <a class="w3-bar-item w3-button" href="/cssref/css_selectors.asp">CSS Selector Reference</a>
+            <a class="w3-bar-item w3-button" href="/bootstrap/bootstrap_ref_all_classes.asp">Bootstrap 3 Reference</a>
+            <a class="w3-bar-item w3-button" href="/bootstrap4/bootstrap_ref_all_classes.asp">Bootstrap 4 Reference</a>
+            <a class="w3-bar-item w3-button" href="/w3css/w3css_references.asp">W3.CSS Reference</a>
+            <a class="w3-bar-item w3-button" href="/icons/icons_reference.asp">Icon Reference</a>
+            <a class="w3-bar-item w3-button" href="/sass/sass_functions_string.php">Sass Reference</a>
+         </div>
+          <div class="w3-col l3 m6">
+            <h3>JavaScript</h3>
+            <a class="w3-bar-item w3-button" href="/jsref/default.asp">JavaScript Reference</a>
+            <a class="w3-bar-item w3-button" href="/jsref/default.asp">HTML DOM Reference</a>
+            <a class="w3-bar-item w3-button" href="/jquery/jquery_ref_overview.asp">jQuery Reference</a>
+            <a class="w3-bar-item w3-button" href="/angular/angular_ref_directives.asp">AngularJS Reference</a>
+            <a class="w3-bar-item w3-button" href="/appml/appml_reference.asp">AppML Reference</a>
+            <a class="w3-bar-item w3-button" href="/w3js/w3js_references.asp">W3.JS Reference</a>
+            <h3>Programming</h3>
+            <a class="w3-bar-item w3-button" href="/python/python_reference.asp">Python Reference</a>
+            <a class="w3-bar-item w3-button" href="/java/java_ref_keywords.asp">Java Reference</a>
+          </div>
+          <div class="w3-col l3 m6">
+            <h3>Server Side</h3>
+            <a class="w3-bar-item w3-button" href="/sql/sql_ref_keywords.asp">SQL Reference</a>
+            <a class="w3-bar-item w3-button" href="/php/php_ref_overview.asp">PHP Reference</a>
+            <a class="w3-bar-item w3-button" href="/asp/asp_ref_response.asp">ASP Reference</a>
+            <h3>XML</h3>
+            <a class="w3-bar-item w3-button" href="/xml/dom_nodetype.asp">XML Reference</a>
+            <a class="w3-bar-item w3-button" href="/xml/dom_http.asp">XML Http Reference</a>
+            <a class="w3-bar-item w3-button" href="/xml/xsl_elementref.asp">XSLT Reference</a>
+            <a class="w3-bar-item w3-button" href="/xml/schema_elements_ref.asp">XML Schema Reference</a>
+          </div>
+          <div class="w3-col l3 m6 w3-hide-medium w3-hide-small">
+            <h3>Character Sets</h3>
+            <a class="w3-bar-item w3-button" href="/charsets/default.asp">HTML Character Sets</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_ascii.asp">HTML ASCII</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_ansi.asp">HTML ANSI</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_ansi.asp">HTML Windows-1252</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_8859.asp">HTML ISO-8859-1</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_symbols.asp">HTML Symbols</a>
+            <a class="w3-bar-item w3-button" href="/charsets/ref_html_utf8.asp">HTML UTF-8</a>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div id="nav_exercises" class="w3-bar-block w3-card-2" style="display: none;">
+        <span onclick="w3_close_nav(&quot;exercises&quot;)" class="w3-button w3-xlarge w3-right" style="position:absolute;right:0;font-weight:bold;">×</span>
+        <div class="w3-row-padding" style="padding:24px 48px">
+          <div class="w3-col l4 m6">
+            <h3>Exercises</h3>
+            <a class="w3-bar-item w3-button" href="/html/html_exercises.asp">HTML Exercises</a>
+            <a class="w3-bar-item w3-button" href="/css/css_exercises.asp">CSS Exercises</a>
+            <a class="w3-bar-item w3-button" href="/js/js_exercises.asp">JavaScript Exercises</a>
+            <a class="w3-bar-item w3-button" href="/sql/sql_exercises.asp">SQL Exercises</a>
+            <a class="w3-bar-item w3-button" href="/php/php_exercises.asp">PHP Exercises</a>
+            <a class="w3-bar-item w3-button" href="/python/python_exercises.asp">Python Exercises</a>
+            <a class="w3-bar-item w3-button" href="/jquery/jquery_exercises.asp">jQuery Exercises</a>
+            <a class="w3-bar-item w3-button" href="/bootstrap/bootstrap_exercises.asp">Bootstrap Exercises</a>
+            <a class="w3-bar-item w3-button" href="/java/java_exercises.asp">Java Exercises</a>
+            <a class="w3-bar-item w3-button" href="/cpp/cpp_exercises.asp">C++ Exercises</a>
+            <a class="w3-bar-item w3-button" href="/cs/cs_exercises.asp">C# Exercises</a>
+          </div>
+          <div class="w3-col l4 m6">
+            <h3>Quizzes</h3>
+            <a class="w3-bar-item w3-button" href="/html/html_quiz.asp" target="_top">HTML Quiz</a>
+            <a class="w3-bar-item w3-button" href="/css/css_quiz.asp" target="_top">CSS Quiz</a>
+            <a class="w3-bar-item w3-button" href="/js/js_quiz.asp" target="_top">JavaScript Quiz</a>
+            <a class="w3-bar-item w3-button" href="/sql/sql_quiz.asp" target="_top">SQL Quiz</a>
+            <a class="w3-bar-item w3-button" href="/php/php_quiz.asp" target="_top">PHP Quiz</a>
+            <a class="w3-bar-item w3-button" href="/python/python_quiz.asp" target="_top">Python Quiz</a>
+            <a class="w3-bar-item w3-button" href="/jquery/jquery_quiz.asp" target="_top">jQuery Quiz</a>
+            <a class="w3-bar-item w3-button" href="/bootstrap/bootstrap_quiz.asp" target="_top">Bootstrap Quiz</a>
+            <a class="w3-bar-item w3-button" href="/java/java_quiz.asp" target="_top">Java Quiz</a>
+            <a class="w3-bar-item w3-button" href="/cpp/cpp_quiz.asp" target="_top">C++ Quiz</a>
+            <a class="w3-bar-item w3-button" href="/cs/cs_quiz.asp" target="_top">C# Quiz</a>
+            <a class="w3-bar-item w3-button" href="/xml/xml_quiz.asp" target="_top">XML Quiz</a>
+          </div>
+          <div class="w3-col l4 m12">
+           <h3><a style="padding-left:0!important;text-decoration:none;" href="/cert/default.asp">Certificates</a></h3>
+           <a class="w3-bar-item w3-button" href="/cert/cert_html_new.asp" target="_top">HTML Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_css.asp" target="_top">CSS Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_javascript.asp" target="_top">JavaScript Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_frontend.asp" target="_top">Front End Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_sql.asp" target="_top">SQL Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_php.asp" target="_top">PHP Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_python.asp" target="_top">Python Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_java.asp" target="_top">Java Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_jquery.asp" target="_top">jQuery Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_bootstrap.asp" target="_top">Bootstrap Certificate</a>
+           <a class="w3-bar-item w3-button" href="/cert/cert_xml.asp" target="_top">XML Certificate</a>
+          </div>
+        </div>
+        <br>
+      </div>
+  
+  
+  
+      <div id="nav_login" class="w3-bar-block w3-card-2" style="display:none">
+        <span onclick="w3_close_nav(&quot;login&quot;)" class="w3-button w3-xlarge w3-right" style="position:absolute;right:0;font-weight:bold;">×</span>
+        <div class="loginmodaldiv" style="padding:48px 16px 1px 16px;text-align:center;">
+          <h2>LOG IN</h2>
+          <div style="font-size:15px"><a href="https://mypage.w3schools.com/mypage/index.php">Why Log In?</a></div>
+          <div class="loginmodalform">
+            <form id="loginform" name="loginform" autocomplete="off" method="post">
+              <div><label>Username</label></div>
+              <div><input type="email" name="n" placeholder="Enter your e-mail address" onfocus="login_inputGetsFocus(this)"></div>
+              <br>
+              <div><label>Password</label></div>
+              <div><input type="password" name="p" placeholder="Enter Your Password" onfocus="login_inputGetsFocus(this)"></div>
+              <br>
+              <div id="loginerrordiv" style="display:none" class="w3-text-red"></div>
+              <div class="login_submit_container"><button id="login_submit_button" type="submit" onclick="login_user(event)">LOG IN</button></div>
+              <div style="overflow:auto;margin-top:10px;font-size:15px;">
+              <div class="login_newusertext">New User? <a href="https://mypage.w3schools.com/mypage/login.php?logintyp=1" target="_blank">Sign Up For Free!</a></div>
+              <div class="login_forgotpasswordtext"><a href="https://mypage.w3schools.com/mypage/forgot_password.php">Forgot password?</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+      </div> -->
+  
+  
+    </div>
+  </div>
